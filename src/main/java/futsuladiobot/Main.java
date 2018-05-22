@@ -27,7 +27,7 @@ public class Main {
 		port(8090);
 
 		staticFiles.location("/public");
-		get("/live/audio_html", (req, res) -> audio_html);
+		get("/live/audio_html", (req, res) -> { return  new String( audio_html .getBytes("UTF-8"), "UTF-8");});
 		get("/live/card/*/*/", (req, res) -> {
 			String html = "<!DOCTYPE html>\n" + "<html>\n" + "<head>\n" + "<meta charset=\"utf-8\">\n";
 			String[] splat = req.splat();

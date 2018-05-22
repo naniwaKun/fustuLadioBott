@@ -22,7 +22,17 @@
 
 <script type="text/javascript">
 
-var n = new Notification("ふつらじプレーヤーαが起動しました。");
+(function() {
+  if ("Notification" in window) {
+    var permission = Notification.permission;
+
+    if (permission === "denied" || permission === "granted") {
+      return;
+    }
+
+    Notification.requestPermission();
+  }
+})();
 
 
 $(function(){
