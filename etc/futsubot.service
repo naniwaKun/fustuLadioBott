@@ -1,0 +1,14 @@
+[Unit]
+Description = futsubot  daemon
+
+[Service]
+ExecStart = /usr/bin/java -jar  ./build/libs/fustuLadioBott.jar
+KillMode = process
+Restart = always
+Type = simple
+User=user_name
+Group=user_name
+WorkingDirectory=/opt/fustuLadioBott/
+
+[Install]
+WantedBy = multi-user.target
